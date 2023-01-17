@@ -1,9 +1,10 @@
 import Counter from './components/Counter';
-
+import CounterAsClassComponent from './components/CounterAsClassComponent';
 
 function App() {
   return (
-    <Counter />
+    // <Counter />
+    <CounterAsClassComponent />
   );
 }
 
