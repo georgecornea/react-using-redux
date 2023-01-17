@@ -5,15 +5,15 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  color: #252525;
-  background-color: #252525;
+  color: #635e5e;
+  background-color: #635e5e;
 }
 
 button {
   font: inherit;
   cursor: pointer;
-  background-color: #3c0080;
-  border: 1px solid #3c0080;
+  background-color: #00800d;
+  border: 1px solid #00800d;
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
@@ -21,6 +21,6 @@ button {
 
 button:hover,
 button:active {
-  background-color: #5b14ac;
-  border-color: #5b14ac;
+  background-color: #0da91c;
+  border-color: #0da91c;
 }
