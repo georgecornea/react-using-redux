@@ -11,6 +11,8 @@ const Counter = () => {
   // so the state will updated automattically when data changes
   const counter = useSelector((state) => state.counter);
 
+  const showCounter = useSelector((state) => state.showCounter);
+
   const incrementHandler = () => {
     dispatch({ type: 'INCREMENT' });
   };
@@ -23,12 +25,14 @@ const Counter = () => {
     dispatch({ type: 'INCREASE', amount: 5 });
   };
 
-  const toggleCounterHandler = () => {};
+  const toggleCounterHandler = () => {
+    dispatch({ type: 'TOGGLE' });
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
+      <div className={classes.value}>{showCounter && counter}</div>
       <div>
         <button onClick={incrementHandler}>Increment</button>
         <button onClick={increaseHandler}>Increase by 5</button>
