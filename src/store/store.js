@@ -1,46 +1,8 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import authSlice from './authSlice';
+import counterSlice from './counterSlice';
+
 // import { createStore } from 'redux';
-
-const initialState = { counter: 0, showCounter: true };
-
-// createSlice provide us a slice from our global state
-// we need to provide an object as argument
-// all methods from reducers are automatically updated by React with the actual state
-// also, all the methods accepts state and action(if needed) params
-// we can manipulate the existing state; however, React will clone the existing state // in a immutable code
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: initialState,
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      // redux/toolkit accept payload as the object/value passed by reducers
-      state.counter = state.counter + action.payload;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
-  },
-});
-
-const initialAuthState = { isAuthenticated: false };
-const authSlice = createSlice({
-  name: 'auth',
-  initialState: initialAuthState,
-  reducers: {
-    login(state) {
-      state.isAuthenticated = true;
-    },
-    logout(state) {
-      state.isAuthenticated = false;
-    },
-  },
-});
 
 // never mutate the existing state
 // always return a new state object
@@ -85,10 +47,5 @@ const store = configureStore({
     auth: authSlice.reducer,
   },
 });
-
-// redux will create for us the actions
-export const counterActions = counterSlice.actions;
-
-export const authActions = authSlice.actions;
 
 export default store;

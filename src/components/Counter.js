@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { counterActions } from '../store/store';
+import { counterActions } from '../store/counterSlice';
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -10,9 +10,9 @@ const Counter = () => {
   // we need to pass a function which determine what piece of data we want from store
   // react executes the function and set up a subscription
   // so the state will updated automattically when data changes
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counter);
 
-  const showCounter = useSelector((state) => state.showCounter);
+  const showCounter = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     // dispatch({ type: 'INCREMENT' });
