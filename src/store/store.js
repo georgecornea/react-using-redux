@@ -28,6 +28,20 @@ const counterSlice = createSlice({
   },
 });
 
+const initialAuthState = { isAuthenticated: false };
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    },
+  },
+});
+
 // never mutate the existing state
 // always return a new state object
 // const counterReducer = (state = initialState, action) => {
@@ -64,13 +78,17 @@ const counterSlice = createSlice({
 // if we have multiple slices, we need to pass an object to the reducer key
 // each key in the new object will be a slice
 const store = configureStore({
-  reducer: counterSlice.reducer, // for one slice
-  //   reducer: { // for multiple slices, we pass an object
-  //     counter: counterSlice.reducer,
-  //   },
+  //   reducer: counterSlice.reducer, // for one slice
+  reducer: {
+    // for multiple slices, we pass an object
+    counter: counterSlice.reducer,
+    auth: authSlice.reducer,
+  },
 });
 
 // redux will create for us the actions
 export const counterActions = counterSlice.actions;
+
+export const authActions = authSlice.actions;
 
 export default store;
