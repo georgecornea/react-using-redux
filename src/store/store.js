@@ -19,7 +19,8 @@ const counterSlice = createSlice({
       state.counter--;
     },
     increase(state, action) {
-      state.counter += action.amount;
+      // redux/toolkit accept payload as the object/value passed by reducers
+      state.counter = state.counter + action.payload;
     },
     toggleCounter(state) {
       state.showCounter = !state.showCounter;
